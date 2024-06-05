@@ -4,6 +4,7 @@ from tkinter import StringVar, ttk
 from tkinter import filedialog
 import requests
 from bs4 import BeautifulSoup
+import os
 
 link = []
 number=[]
@@ -65,12 +66,22 @@ root = Tk()
 root.resizable(0,0)
 root.geometry("600x670")
 root.title("BULK ANIME DOWNLOADER")
-root.iconbitmap('D:\python\icon.ico')
+# Get the current directory
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Set the iconbitmap using the relative path
+icon_path = os.path.join(current_directory, 'icons\icon.ico')
+root.iconbitmap(icon_path)
+# root.iconbitmap('D:\python\icon.ico')
 root.config(background="#C9CCD5")
 root.columnconfigure(0,weight=1)
 
 # Anime Downloader (IMAGE)
-image=Image.open("D:\python\pok.jpg")
+
+image_path = os.path.join(current_directory, 'icons\pok.jpg')
+image = Image.open(image_path)
+
+# image=Image.open("D:\python\pok.jpg")
 image = image.resize((600, 130))
 photo=ImageTk.PhotoImage(image)
 l1 = Label(image=photo)                          
